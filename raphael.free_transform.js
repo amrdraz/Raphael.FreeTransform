@@ -32,10 +32,11 @@ Raphael.fn.freeTransform = function(subject, options, callback) {
 	}
 
 	var
-		paper = this,
-		bbox  = subject.getBBox(true)
-		;
-
+	paper = this,
+	bbox  = subject.getBBox(true)
+	;
+	// In case width and height are relative
+    	paper.width = paper.canvas.offsetWidth; paper.height = paper.canvas.offsetHeight;
 	var ft = subject.freeTransform = {
 		// Keep track of transformations
 		attrs: {
